@@ -10,7 +10,7 @@ class FitnessService:
         }
 
     def generate_ai_program(self, program_type="Fat Loss"):
-        \"\"\"Mock AI behavior to pick a random routine for the program type.\"\"\"
+        """Mock AI behavior to pick a random routine for the program type."""
         if program_type not in self.program_templates:
             program_type = "Beginner"
         return random.choice(self.program_templates[program_type])

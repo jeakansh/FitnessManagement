@@ -10,9 +10,7 @@ pipeline {
 
         stage('Run Tests in Container') {
             steps {
-                sh '''
-                docker run --rm aceest-fitness pytest
-                '''
+                sh 'docker run --rm aceest-fitness pytest'
             }
         }
     }
