@@ -3,6 +3,11 @@ pipeline {
 
     stages {
         stage('Install Dependencies') {
+             agent {
+                docker {
+                    image 'python:3.11'
+                }
+            }
             steps {
                 sh '''
                 python3 -m pip install --upgrade pip
