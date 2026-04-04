@@ -4,19 +4,19 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                bat 'pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'pytest'
+                sh 'pytest'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t fitness-app .'
+                sh 'docker build -t fitness-app .'
             }
         }
     }
