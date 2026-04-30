@@ -23,7 +23,7 @@ pipeline {
 
         stage('Load Image into Minikube') {
             steps {
-                sh "minikube image load $IMAGE_NAME:$IMAGE_TAG"
+             sh '/usr/local/bin/minikube image load $IMAGE_NAME:$IMAGE_TAG'
             }
         }
 
