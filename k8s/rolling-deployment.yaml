@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitness-app
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: fitness
+  template:
+    metadata:
+      labels:
+        app: fitness
+    spec:
+      containers:
+        - name: fitness-container
+          image: aceest-fitness:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
