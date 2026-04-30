@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitness-ab-b
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fitness
+      version: b
+  template:
+    metadata:
+      labels:
+        app: fitness
+        version: b
+    spec:
+      containers:
+        - name: app
+          image: aceest-fitness:v2
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
